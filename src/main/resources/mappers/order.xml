@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ojt.project.dao.OrderDAO">
+    <insert id="insertOrder" parameterType="Order">
+         <![CDATA[
+        insert into social.order (product_number, id, request_message, order_amount, order_price)
+        values (#{product_number}, #{id}, #{request_message}, #{order_amount}, #{order_price})
+        ]]>
+    </insert>
+
+    <select id="getOrderList" resultType="HashMap" parameterType="String">
+        select o.*, p.product_name, u.name, u.address, u.postcode, u.telephone
+        from social.order o
+                 inner join social.product p on o.product_number = p.product_number
+                 left join social.user u on u.id = o.id
+        where o.id = #{id};
+    </select>
+
+</mapper>

@@ -1,0 +1,17 @@
+#spring안에 말고 무조건 최상단에 두어야한다.
+mybatis:
+  type-aliases-package: ojt.project.dto
+  config-location: classpath:mybatis-config.xml
+
+#jsp 경로 매핑
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+  datasource:
+    url: "jdbc:mysql://localhost:3306/social"
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver

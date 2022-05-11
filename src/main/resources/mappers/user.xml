@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ojt.project.dao.UserDAO">
+    <insert id="insertUser" parameterType="User">
+        <![CDATA[
+        insert into user (id,password,email,name,address,postcode,telephone) values (#{id},#{password},#{email},#{name},#{address},#{postcode},#{telephone})
+        ]]>
+    </insert>
+
+    <select id="selectUser" resultType="User" parameterType="String">
+         <![CDATA[
+        select * from user where id=#{id}
+        ]]>
+    </select>
+
+
+
+</mapper>
